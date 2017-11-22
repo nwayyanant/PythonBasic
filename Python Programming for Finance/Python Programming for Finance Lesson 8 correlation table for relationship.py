@@ -94,8 +94,8 @@ def visualize_data():
     ax1.set_xticks(np.arange(data1.shape[1]) + 0.5, minor = False)
     ax1.set_yticks(np.arange(data1.shape[0]) + 0.5, minor = False)
 
-##    ax1.invert_yaxis()
-##    ax1.xaxis.tick_top()
+    ax1.invert_yaxis()
+    ax1.xaxis.tick_top()
 
     column_labels = df_corr.columns
     row_labels = df_corr.index
@@ -107,21 +107,9 @@ def visualize_data():
     plt.tight_layout()
     plt.savefig("correlation.png", dpt=(300))
     plt.show()
+    
 
-def process_data_for_labels(ticker):
-    hm_days=7
-    df = pd.read_csv('sp500_joined_closes.csv',index_col=0)
-    tickers = df.columns.values.tolist()
-    df.fillna(0,inplace=True)
-
-    for i in range(1,hm_days+1):
-        df['{}_{}d'.format(ticker,i)] = (df[ticker].shift(-i) - df[ticker])/ df[ticker]
-
-    df.fillna(0, inplace=True)
-    return tickers, df
-
-
-
+visualize_data()
 
 
                               

@@ -10,6 +10,7 @@ import pickle
 import requests
 import time
 
+
 style.use('ggplot')
 
 def save_sp500_ticker():
@@ -108,6 +109,7 @@ def visualize_data():
     plt.savefig("correlation.png", dpt=(300))
     plt.show()
 
+
 def process_data_for_labels(ticker):
     hm_days=7
     df = pd.read_csv('sp500_joined_closes.csv',index_col=0)
@@ -120,8 +122,7 @@ def process_data_for_labels(ticker):
     df.fillna(0, inplace=True)
     return tickers, df
 
-
-
+ 
 
 
                               
