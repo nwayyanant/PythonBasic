@@ -50,7 +50,7 @@ print(forecast_set,accuracy,forecast_out)
 df['Forecast'] = np.nan
 
 last_date = df.iloc[-1].name
-last_unix = last_date.timestamp()
+last_unix = last_date
 one_day =86400
 next_unix = last_unix + one_day
 
