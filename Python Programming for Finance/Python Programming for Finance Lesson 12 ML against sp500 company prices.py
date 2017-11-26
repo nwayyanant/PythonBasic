@@ -76,7 +76,7 @@ def do_ml(ticker):
     return confidence
 
 ##examples to run
-##do_ml('MMM')
+do_ml('MMM')
 ##do_ml('AES')
 ##do_ml('AMZN')
 

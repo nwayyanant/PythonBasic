@@ -108,7 +108,7 @@ def visualize_data():
     plt.tight_layout()
     plt.savefig("correlation.png", dpt=(300))
     plt.show()
-
+visualize_data()
 
 def process_data_for_labels(ticker):
     hm_days=7

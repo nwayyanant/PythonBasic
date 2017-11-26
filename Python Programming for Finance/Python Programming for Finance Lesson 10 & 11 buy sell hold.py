@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import pickle
-from collection import Counter
+from collections import Counter
 from sklearn import svm,cross_validation, neighbors
 from sklearn.ensemble import VotingClassifier, RandomForestClassifier
 
@@ -47,7 +47,7 @@ def extract_featuresets(ticker):
     df = df.replace([np.inf, -np.inf],np.nan)
     df.dropna(inplace=True)
 
-    df_vals = df[[ticker for ticker in ticlers]].pct_change()
+    df_vals = df[[ticker for ticker in tickers]].pct_change()
     df_vals = df_vals.replace([np.inf,-np.inf],0)
     df_vals.fillna(0, inplace=True)
 
@@ -59,7 +59,7 @@ def extract_featuresets(ticker):
 def do_ml(ticker):
     X,y,df = extract_featuresets(ticker)
 
-    X_train, X_test, y_train, y_test = cross_validation.train_test_split(X,y, testsize =0.25)
+    X_train, X_test, y_train, y_test = cross_validation.train_test_split(X,y, test_size =0.25)
 
     clf = neighbors.KNeighborsClassifier()
     clf.fit(X_train,y_train)
@@ -70,7 +70,7 @@ def do_ml(ticker):
     print('predicted class counts:', Counter(predictions))
 
 
-do_ml('MMM')
+do_ml('A')
                                             
     
     
